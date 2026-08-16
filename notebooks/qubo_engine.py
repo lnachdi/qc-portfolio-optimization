@@ -1,4 +1,13 @@
-def build_qubo_matrix(mean_returns,cov_matrix,lambda_risk,lambda_budget,lambda_sector,sector_map,sector_cap):
+import numpy as np
+import dimod
+from itertools import product
+
+
+def build_qubo_matrix(mean_returns,cov_matrix,lambda_risk,lambda_budget,lambda_sector,sector_map,sector_cap,n_assets,n_bits):
+    mean_returns = np.asarray(mean_returns)
+    cov_matrix= np.asarray(cov_matrix)
+
+    N=n_assets*n_bits
     Q = np.zeros((N,N))
 
     #Returns term: maximize return= minimize negative return
@@ -63,11 +72,11 @@ def brute_force_qubo(Q): #solves by searching over all 2^N binary strings
         energy = x@Q@x
         if energy < best_energy:
             best_energy = energy
-            best_x = x.copy
+            best_x = x.copy()
     return best_x, best_energy
 
-x_brute,energy_brute = brute_force_qubo(Q)
-print(f"Brute force optimal energy: {energy_brute: .5f}")
+# x_brute,energy_brute = brute_force_qubo(Q)
+# print(f"Brute force optimal energy: {energy_brute: .5f}")
 
 
 def simulated_annealing_qubo(Q, num_reads=1000, num_sweeps=1000):
@@ -89,10 +98,10 @@ def simulated_annealing_qubo(Q, num_reads=1000, num_sweeps=1000):
     sampler = dimod.SimulatedAnnealingSampler()
     response = sampler.sample(bqm,num_reads=num_reads,num_sweeps=num_sweeps)
 
-    best_sample=response.first.sample()
+    best_sample=response.first.sample
     x_sa = np.array([best_sample[i] for i in range(N)])
-    energy=x@Q@x
-    return x,energy
+    energy=x_sa@Q@x_sa
+    return x_sa,energy
 
 def decode_weights(x,n_assets,n_bits):
-    return np.array([sum((2**k)* x_sa[i*n_bits +k] for k in range(n_bits)) / (2**n_bits -1) for i in range(n_assets)])
+    return np.array([sum((2**k)* x[i*n_bits +k] for k in range(n_bits)) / (2**n_bits -1) for i in range(n_assets)])

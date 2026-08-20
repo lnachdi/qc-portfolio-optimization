@@ -8,8 +8,7 @@ Three solution methods are implemented and benchmarked against each other on ide
 Tested across 3 different qubit instances (N=6,9,10).
 
 ## Results
-![Penalty Sensitivity Analysis](penalty_sensitivity_2bit.png)(penalty_sensitivity_3bit.png)
-![Penalty Sensitivity Analysis](penalty_sensitivity_3bit.png)
+![Penalty Sensitivity Analysis](penalty_sensitivity_2bit.png)
 *Sector cap constraint violation and resulting Sharpe ratio as sector penalty strength increases, at 2-bit vs 3-bit weight discretization.*
 
 ## Key Findings (Based on N=9)

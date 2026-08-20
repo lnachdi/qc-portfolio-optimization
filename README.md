@@ -2,7 +2,7 @@
 
 A research extension of classical mean-variance portfolio optimization into a QUBO/quantum framework, benchmarking QAOA against classical and heuristic solvers with a focus on how portfolio constraints are coded into the optimization objective. Thisproject asks the question of if sector diversification constraints are encoded directly into QUBO's penalty structure (upstream rather than filtered downstream) how does it affect solution quality, constraint satisfaction, and discretization behaviour?
 
-Built as a 4 week extension of a classical portfolio optimization project, developed as a research proposal for quantum finance work at NYU Abu Dhabi's Center for Quantum and Topological Systems
+Built as a 4 week extension of a classical portfolio optimization project, developed as a research proposal for a quantum finance assistantship at NYU Abu Dhabi's Center for Quantum and Topological Systems
 
 ## Overview
 This project reformulates the Markowitz portfolio optimization problem (see the 'classical portfolio optimization engine' repo) as a QUBO problem solved via QAOA. Continuous asset weights are discretized through a binary fixed-point encoding, and constraints, including a sector diversification cap, are encoded as penalty terms within the QUBO objective (designed as an 'upstream' penalty).

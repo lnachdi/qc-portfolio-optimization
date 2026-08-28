@@ -28,7 +28,7 @@ Tested across 3 different qubit instances (N=6,...,10).
 
 ## Mathematical and Quantum Computing Framework
 **Binary encoding:** for each continuous asset weight w_i is represented via binary expansion across n_bits binary variables.
-w_i = (1 / (2^n_bits - 1)) * sum_k( 2^k * x_{i,k} )
+w_i = (1/(2^n_bits - 1)) * sum_k(2^k * x_{i,k})
 
 **QUBO objective:** portfolio objective x^TQx combines the following into a single matrix Q:
 1- Return term(linear on the diagonal): -sum_i( mu_i * w_i ) maximizes the expected return by minimizing its negative

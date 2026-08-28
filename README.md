@@ -36,7 +36,7 @@ w_i = (1/(2^n_bits - 1)) * sum_k(2^k * x_{i,k})
 3- Budget constraint (penalty): lambda_budget * (sum_i(w_i) - 1)^2 so the weights sum to 1
 4- Sector cap (upstream penalty): lambda_sector * (sum_{i in sector}(w_i) - cap)^2 per sector
 
-**QUBO to Ising Hamiltonian:** For quantum circuit binary variables are mapped to spin variables through x_i = (1 - Z_i)/2 which converts QUBO matrix to Ising Hamiltonian H=offset + sum(h_i * Z_i) + sum(J_ij * Z_i * Z_j) that QAOA operates on
+**QUBO to Ising Hamiltonian:** For quantum circuit binary variables are mapped to spin variables through x_i=(1 - Z_i)/2 which converts QUBO matrix to Ising Hamiltonian H=offset + sum(h_i * Z_i) + sum(J_ij * Z_i * Z_j) that QAOA operates on
 
 **QAOA Circuit:** p-layer QAOA circuit alternates a cost and a mixer unitary starting from an equal superposition for all bitstrings. Circuit parameters gamma and beta are optimized using COBYLA to minimize the expectation value of H.
 

@@ -50,7 +50,7 @@ Initially all the quantum results reported from PennyLane's noiseless simulator.
 - Lucas, A. (2014) *Ising formulations of many NP problems*
 - Glover, Kochenberger and Du (2022)*Quantum Bridge Analytics I: A Tutorial on Formulating and Using QUBO Models*
 - IBM Quantum Platform: Basics of quantum information course
-- Libraries: numpy pandas matplotlib yfinance scipy dimod pennylane
+- Libraries: scipy numpy pandas matplotlib yfinance dimod pennylane
 
 
 
